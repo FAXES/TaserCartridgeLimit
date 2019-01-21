@@ -5,8 +5,10 @@
 
 --- Config ---
 
-maxTaserCarts = 4 -- The amount of taser cartridges a person can have.
+maxTaserCarts = 3 -- The amount of taser cartridges a person can have.
 refillCommand = "reloadcart" -- The command to refill taser cartridges
+longerTazeTime = true -- Want longer taze times? true/false
+longerTazeSecTime = 20 -- Time in SECONDS to extend the longer taze time.
 
 --- Code ---
 
@@ -47,6 +49,10 @@ Citizen.CreateThread(function()
             else
                 -- Do nothing
             end
+        end
+
+        if longerTazeTime then
+            SetPedMinGroundTimeForStungun(ped, longerTazeSecTime * 1000)
         end
     end
 end)
