@@ -9,6 +9,7 @@ maxTaserCarts = 3 -- The amount of taser cartridges a person can have.
 refillCommand = "reloadcart" -- The command to refill taser cartridges
 longerTazeTime = true -- Want longer taze times? true/false
 longerTazeSecTime = 20 -- Time in SECONDS to extend the longer taze time.
+PoliceVehicle = true -- If player needs to be in a police vehicle to obtain new carts.
 
 --- Code ---
 
@@ -21,10 +22,21 @@ function ShowNotification(text)
 end
 
 RegisterCommand(refillCommand, function(source, args, rawCommand)
-    taserCartsLeft = maxTaserCarts
-    print("[Fax Taser Cartridge] Taser Cartridges Left = " .. taserCartsLeft)
-    ShowNotification("~g~Taser Cartridges Refilled.")
+		
+    local ped = GetPlayerPed(-1)
+	if PoliceVehicle then 
+    	if IsPedInAnyPoliceVehicle(ped, true) then
+        	taserCartsLeft = maxTaserCarts
+        	ShowNotification("~g~Taser Cartridges Refilled.")
+    	else
+			ShowNotification("~r~Extra cartagrages in your police car.")
+		end
+	else
+		taserCartsLeft = maxTaserCarts
+		ShowNotification("~g~Taser Cartridges Refilled.")
+    end
 end)
+
 
 Citizen.CreateThread(function()
     while true do
