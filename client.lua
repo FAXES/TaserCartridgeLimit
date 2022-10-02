@@ -75,23 +75,23 @@ end)
 function draw(text, posx, posy)
     SetTextFont(4);
     SetTextScale(0.0, 0.55);
-    SetTextJustification(1);
+    SetTextProportional(1);
     SetTextColour(250, 250, 120, 255);
     SetTextDropshadow(1, 255, 255, 255, 255);
     SetTextEdge(1, 0, 0, 0, 205);
-    BeginTextCommandDisplayText("STRING");
-    AddTextComponentSubstringPlayerName(text);
-    EndTextCommandDisplayText(posx, posy);
+    SetTextEntry("STRING");
+    AddTextComponentString(text);
+    DrawText(posx, posy);
 end
 
 function draw2(text, posx, posy)
     SetTextFont(4);
     SetTextScale(0.0, 0.55);
-    SetTextJustification(1);
+    SetTextProportional(1);
     SetTextColour(255, 0, 0, 255)
     SetTextDropshadow(1, 255, 255, 255, 255);
     SetTextEdge(1, 0, 0, 0, 205);
-    BeginTextCommandDisplayText("STRING");
-    AddTextComponentSubstringPlayerName(text);
-    EndTextCommandDisplayText(posx, posy);
+    SetTextEntry("STRING");
+    AddTextComponentString(text);
+    DrawText(posx, posy);
 end
