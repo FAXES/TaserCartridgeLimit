@@ -22,7 +22,7 @@ function ShowNotification(text)
 end
 
 RegisterCommand(refillCommand, function(source, args, rawCommand)		
-    local ped = GetPlayerPed(-1)
+    local ped = 
 	if PoliceVehicle then 
     	if IsPedInAnyPoliceVehicle(ped, true) then
         	taserCartsLeft = maxTaserCarts
