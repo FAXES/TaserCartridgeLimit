@@ -41,7 +41,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Citizen.Wait(1)
         local ped = GetPlayerPed(-1)
         local taserModel = GetHashKey("WEAPON_STUNGUN")
 
