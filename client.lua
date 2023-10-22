@@ -43,7 +43,7 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(1)
         local ped = PlayerPedId()
-        local taserModel = GetHashKey("WEAPON_STUNGUN")
+        local taserModel = joaat("WEAPON_STUNGUN")
 
         if not HasStreamedTextureDictLoaded("mpweaponsgang0") then
             RequestStreamedTextureDict("mpweaponsgang0", true)
